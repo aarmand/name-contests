@@ -5,7 +5,8 @@
   "author": "Samer Buna",
   "license": "ISC",
   "scripts": {
-    "start": "node lib/index"
+    "start": "node lib/index",
+    "dev": "nodemon --exec node lib/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "express-graphql": "^0.5.4",
-    "graphql": "^0.6.0",
+    "graphql": "^0.7.0",
     "mongodb": "^2.1.18",
     "pg": "^6.0.1"
   },
