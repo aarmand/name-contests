@@ -20,6 +20,7 @@
  * to return the first line since we know that is the line with the information we want.
  * The .then statement say return one row or zero rows for bad keys.
  */
+const humps = require('humps');
 
 module.exports = pgPool => {
     return {
@@ -28,7 +29,7 @@ module.exports = pgPool => {
            select * from users
            where api_key = $1
            `, [apiKey]).then(res => {
-                return res.rows[0];
+                return humps.camelizeKeys(res.rows[0]);
             });
         }
     };
