@@ -1,4 +1,4 @@
-/**create MeType as const to be imported and re-usable in schema.js */
+/**create UserType as const to be imported and re-usable in schema.js */
 
 /**import the GraphQL Helper types we are using in this custom 
  * type definition
@@ -25,7 +25,7 @@ const ContestType = require('./contest');
 
 /**this is what the module will export to schema.js */
 module.exports = new GraphQLObjectType({
-    name: 'MeType',
+    name: 'UserType',
 
     fields: {
         id: { type: GraphQLID },
