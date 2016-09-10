@@ -7,8 +7,12 @@ const {
     GraphQLObjectType,
     GraphQLID,
     GraphQLString,
-    GraphQLNonNull
+    GraphQLNonNull,
+    GraphQLList
 } = require('graphql');
+
+const pgdb = require('../../database/pgdb');
+const ContestType = require('./contest');
 
 
 /**this is what the module will export to schema.js */
@@ -20,6 +24,16 @@ module.exports = new GraphQLObjectType({
         email: { type: new GraphQLNonNull(GraphQLString) },
         firstName: { type: GraphQLString },
         lastName: { type: GraphQLString },
-        createdAt: { type: GraphQLString }
+        fullName: {
+            type: GraphQLString,
+            resolve: obj => `${obj.firstName} ${obj.lastName}`
+        },
+        createdAt: { type: GraphQLString },
+        contests: {
+            type: new GraphQLList(ContestType),
+            resolve: (obj, args, { pgPool }) => {
+                return pgdb(pgPool).getContests(obj);
+            }
+        }
     }
 });
