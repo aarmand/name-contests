@@ -23,13 +23,25 @@
 const humps = require('humps');
 
 module.exports = pgPool => {
+    const orderedFor = (rows, collection, field) => {
+        const data = humps.camelizeKeys(rows);
+
+        return collection.map(element => {
+            const elementArray = inGroupOfField[element];
+            if (elementArray) {
+                return elementArray[0];
+            }
+            return {};
+        });
+    }
+
     return {
-        getUserById(userId) {
+        getUsersByIds(userIds) {
             return pgPool.query(`
             select * from users
-            where id = $1
-            `, [userId]).then(res => {
-                return humps.camelizeKeys(res.rows[0]);
+            where id = ANY($1)
+            `, [userIds]).then(res => {
+                return orderedFor(res.rows, userIds, 'id');
             });
         },
 

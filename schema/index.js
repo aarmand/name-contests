@@ -6,7 +6,6 @@ const {
     GraphQLNonNull
 } = require('graphql');
 
-
 const pgdb = require('../database/pgdb');
 /** import UserType */
 const UserType = require('./types/user');
