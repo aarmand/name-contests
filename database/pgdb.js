@@ -20,21 +20,9 @@
  * to return the first line since we know that is the line with the information we want.
  * The .then statement say return one row or zero rows for bad keys.
  */
-const humps = require('humps');
-const _ = require('lodash');
+const { orderedFor } = require('../lib/util');
 
 module.exports = pgPool => {
-    const orderedFor = (rows, collection, field, singleObject) => {
-        const data = humps.camelizeKeys(rows);
-        const inGroupsOfField = _.groupBy(data, field);
-        return collection.map(element => {
-            const elementArray = inGroupsOfField[element];
-            if (elementArray) {
-                return singleObject ? elementArray[0] : elementArray;
-            }
-            return singleObject ? {} : [];
-        });
-    }
 
     return {
         getUsersByIds(userIds) {
