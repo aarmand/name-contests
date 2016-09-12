@@ -1,5 +1,9 @@
 {
   "globalDependencies": {
-    "lodash": "registry:dt/lodash#4.14.0+20160830145422"
+    "express": "registry:dt/express#4.0.0+20160708185218",
+    "express-graphql": "registry:dt/express-graphql#0.0.0+20160626095004",
+    "lodash": "registry:dt/lodash#4.14.0+20160830145422",
+    "mongodb": "registry:dt/mongodb#2.1.0+20160602142941",
+    "pg": "registry:dt/pg#6.1.0+20160830123815"
   }
 }
