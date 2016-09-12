@@ -26,8 +26,7 @@ module.exports = new GraphQLObjectType({
         contests: {
             type: new GraphQLList(ContestType),
             resolve(obj, args, { loaders }) {
-                return loaders.mdb.usersByIds.load(obj.id)
-                    .then(res => res[fieldName]);
+                return loaders.contestsForUserIds.load(obj.id);
             }
         },
         contestsCount: {
@@ -47,7 +46,7 @@ module.exports = new GraphQLObjectType({
         votesCount: {
             type: GraphQLInt,
             resolve(obj, args, { loaders }) {
-                return loaders.contestsForUserIds.load(obj.id)
+                return loaders.mdb.usersByIds.load(obj.id)
                     .then(res => res[fieldName])
             }
         }
