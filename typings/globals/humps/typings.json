@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/b6b192d3ea2bb488eceee72338190c1e7617e139/humps/humps.d.ts",
+    "raw": "registry:dt/humps#1.1.0+20160909142634",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/b6b192d3ea2bb488eceee72338190c1e7617e139/humps/humps.d.ts"
+  }
+}

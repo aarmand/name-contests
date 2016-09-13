@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "humps": "registry:dt/humps#1.1.0+20160909142634"
+  }
+}
